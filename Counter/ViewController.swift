@@ -33,11 +33,38 @@ final class ViewController: UIViewController {
     @IBOutlet private weak var restartButton: UIButton!
     
     @IBAction private func increaseAction() {
+        updateLogText(on: .increase)
+    }
+    
+    @IBAction private func decreaseAction() {
+        updateLogText(on: .decrease)
+    }
+    
+    @IBAction private func restartAction() {
+        updateLogText(on: .restart)
+    }
+    
+    enum Event {
+        case increase, decrease, restart
+    }
+    
+    private func updateLogText(on event: Event) {
+        switch event {
+        case .increase:
+            increaseCount()
+        case.decrease:
+            decreaseCount()
+        case.restart:
+            restartCount()
+        }
+    }
+    
+    private func increaseCount() {
         countValue += 1
         logText.text += "\n\(time): значение изменено на +1"
     }
     
-    @IBAction private func decreaseAction() {
+    private func decreaseCount() {
         if countValue == 0 {
             logText.text += "\n\(time): попытка уменьшить значение ниже 0"
         } else {
@@ -46,9 +73,8 @@ final class ViewController: UIViewController {
         }
     }
     
-    @IBAction private func restartAction() {
+    private func restartCount() {
         countValue = 0
         logText.text += "\n\(time): значение сброшено"
     }
 }
-
