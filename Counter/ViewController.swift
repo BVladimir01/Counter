@@ -24,8 +24,6 @@ final class ViewController: UIViewController {
         increaseButton.tintColor = .red
         decreaseButton.tintColor = .systemBlue
         restartButton.tintColor = .systemGray
-        
-        // Do any additional setup after loading the view.
     }
 
     @IBOutlet weak var counterLabel: UILabel!
