@@ -26,22 +26,18 @@ final class ViewController: UIViewController {
         restartButton.tintColor = .systemGray
     }
 
-    @IBOutlet weak var counterLabel: UILabel!
+    @IBOutlet private weak var counterLabel: UILabel!
+    @IBOutlet private weak var logText: UITextView!
+    @IBOutlet private weak var increaseButton: UIButton!
+    @IBOutlet private weak var decreaseButton: UIButton!
+    @IBOutlet private weak var restartButton: UIButton!
     
-    @IBOutlet weak var logText: UITextView!
-    
-    @IBOutlet weak var increaseButton: UIButton!
-    
-    @IBOutlet weak var decreaseButton: UIButton!
-    
-    @IBOutlet weak var restartButton: UIButton!
-    
-    @IBAction func increaseAction() {
+    @IBAction private func increaseAction() {
         countValue += 1
         logText.text += "\n\(time): значение изменено на +1"
     }
     
-    @IBAction func decreaseAction() {
+    @IBAction private func decreaseAction() {
         if countValue == 0 {
             logText.text += "\n\(time): попытка уменьшить значение ниже 0"
         } else {
@@ -50,7 +46,7 @@ final class ViewController: UIViewController {
         }
     }
     
-    @IBAction func restartAction() {
+    @IBAction private func restartAction() {
         countValue = 0
         logText.text += "\n\(time): значение сброшено"
     }
