@@ -9,9 +9,9 @@ import UIKit
 
 final class ViewController: UIViewController {
 
-    private var counts = 0 {
+    private var countValue: Int = .zero {
         didSet {
-            counterLabel.text = "Значение счетчика: \(counts)"
+            counterLabel.text = "Значение счетчика: \(countValue)"
         }
     }
     
@@ -39,21 +39,21 @@ final class ViewController: UIViewController {
     @IBOutlet weak var restartButton: UIButton!
     
     @IBAction func increaseAction() {
-        counts += 1
+        countValue += 1
         logText.text += "\n\(time): значение изменено на +1"
     }
     
     @IBAction func decreaseAction() {
-        if counts == 0 {
+        if countValue == 0 {
             logText.text += "\n\(time): попытка уменьшить значение ниже 0"
         } else {
-            counts -= 1
+            countValue -= 1
             logText.text += "\n\(time): значение изменено на -1"
         }
     }
     
     @IBAction func restartAction() {
-        counts = 0
+        countValue = 0
         logText.text += "\n\(time): значение сброшено"
     }
 }
